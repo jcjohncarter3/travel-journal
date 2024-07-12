@@ -3,15 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>The Music Journal</title>
 </head>
 <body>
 
     <!-- Bulma Transparent navbar -->
+    <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="...">The Music Journal</a>
+          <div class="navbar-burger js-burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-start"></div>
+        </div>
+      
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <button class="button is-primary is-rounded">Rounded</button>
+            </div>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <button class="button is-primary is-rounded">Rounded</button>
+            </div>
+        </div>
+      </nav>
+
+      <!-- Center Section -->
+
+      <section class="hero is-fullheight-with-navbar">
+        <h1 class="title">Large section</h1>
+        <h2 class="subtitle">
+          <strong> This will be the stored posts container for logging the current and past posts made by the user. </strong>
+        </h2>
+      </section>
+
+      
 
     <!-- Modal card -->
+
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <!-- Any other Bulma elements you want -->
+        <!-- Needs 4 form inputs: Song Name (input), Artist Name (input), Thoughts/Feelings (text area), and Like/Dislike (dropdown) -->
+         <h1>Create a Post</h1>
+         <form> 
+            <div class="field"> 
+                <label class="label">Song Name</label> 
+                <div class="control"> 
+                    <input class="input" type="text" 
+                         placeholder="Enter song name here"> 
+                </div>  
+            </div> 
+  
+            <div class="field"> 
+                <label class="label">Name of Artist</label> 
+                <div class="control"> 
+                    <input class="input" type="text" 
+                         placeholder="Enter the artist's name here"> 
+                </div> 
+            </div> 
+
+            <div class="field"> 
+                <label class="label">Your Thoughts and Feelings</label> 
+                <div class="control"> 
+                    <input class="input" type="text" 
+                         placeholder="Record your thoughts and feelings here!"> 
+                </div> 
+            </div>
+        </form> 
+
+        <h2>Did you like this song?</h2>
+
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
