@@ -5,20 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>The Music Journal</title>
+    <title>The Travel Journal</title>
 </head>
 <body>
 
     <!-- Bulma Transparent navbar -->
     <nav class="navbar is-transparent">
         <div class="navbar-brand">
-          <a class="navbar-item" href="...">The Music Journal</a>
-          <div class="navbar-burger js-burger" data-target="navbarExampleTransparentExample">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+          <img src="travel_journal_logo_2.png">
+          <a class="navbar-item" href="...">The Travel Journal</a>
         </div>
       
         <div id="navbarExampleTransparentExample" class="navbar-menu">
@@ -27,7 +22,7 @@
       
         <div class="navbar-end">
             <div class="navbar-item">
-                <button class="button is-primary is-rounded">Rounded</button>
+                <button class="button is-primary is-rounded" id="modal-button" aria-label="close">Make a Post</button>
             </div>
         </div>
 
@@ -41,55 +36,85 @@
       <!-- Center Section -->
 
       <section class="hero is-fullheight-with-navbar">
-        <h1 class="title">Large section</h1>
-        <h2 class="subtitle">
-          <strong> This will be the stored posts container for logging the current and past posts made by the user. </strong>
-        </h2>
+        <p class="title is-3">The Travel Journal</p>
+      <p class="subtitle is-5">Tell your story and let others live it. In their minds, or in person.</p>
       </section>
-
       
 
     <!-- Modal card -->
+    
+    
 
-    <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-          <!-- Any other Bulma elements you want -->
-        <!-- Needs 4 form inputs: Song Name (input), Artist Name (input), Thoughts/Feelings (text area), and Like/Dislike (dropdown) -->
-         <h1>Create a Post</h1>
+
+    <div class="modal" id="modal-element">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+
+        <header class="modal-card-head">
+          <p class="modal-card-title is-3">Create a Journal Post!</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+
+        <section class="modal-card-body">
          <form> 
-            <div class="field"> 
-                <label class="label">Song Name</label> 
+            <div class="field my-4"> 
+                <label class="label">Destination Name</label> 
                 <div class="control"> 
                     <input class="input" type="text" 
-                         placeholder="Enter song name here"> 
+                      placeholder="Enter the name of your destination here!"> 
                 </div>  
             </div> 
   
-            <div class="field"> 
-                <label class="label">Name of Artist</label> 
+            <div class="field my-4"> 
+                <label class="label">What are some things you did while there?</label> 
                 <div class="control"> 
-                    <input class="input" type="text" 
-                         placeholder="Enter the artist's name here"> 
+                    <input class="input" type="textarea" 
+                      placeholder="Enter some of the places you went and activities you did here!" rows="3"> 
                 </div> 
             </div> 
 
-            <div class="field"> 
+            <div class="field my-4"> 
                 <label class="label">Your Thoughts and Feelings</label> 
                 <div class="control"> 
-                    <input class="input" type="text" 
-                         placeholder="Record your thoughts and feelings here!"> 
+                    <input class="input" type="textarea" 
+                      placeholder="Record your thoughts and feelings here!" rows="3"> 
                 </div> 
             </div>
-        </form> 
 
-        <h2>Did you like this song?</h2>
+            <div class="select my-4">
+              <label class="label">What was your reason for visiting?</label>
+                <div class="control"> 
+                  <input class="input" type="text" 
+                    placeholder="What was your reason for visiting?"> 
+                </div>
+            </div>
 
+
+            <div class="select my-4">
+              <label class="label">Would you visit again?</label>
+              <select>
+                <option>Absolutely!</option>
+                <option>Probably not</option>
+              </select>
+            </div>
+          </form>
         </div>
-        <button class="modal-close is-large" aria-label="close"></button>
+    </section>
+
+              <button class="modal-close is-large" aria-label="close"></button>
+              
+          <footer class="modal-card-foot">
+            <div class="buttons">
+              <button class="button is-primary is-success is-outlined is-rounded">Add to Journal</button>
+              <button class="button is-primary is-danger is-outlined is-rounded">Cancel</button>
+            </div>
+          </footer>
+        </div>
       </div>
+    </div>
 
     <!-- Scripts -->
+    <script async id="google-maps-script"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
         crossorigin="anonymous">
