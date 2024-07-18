@@ -22,32 +22,13 @@ const modalMapScript = document.getElementById("modal-map-script");
 let map;
 
 async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
+    const { Map } = await google.maps.importLibrary("maps");
 
-  map = new Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
+    map = new Map(document.getElementById("map"), {
+        center: { lat: 32.779, lng: -96.808 },
+        zoom: 8,
+        mapId: 'cf24dfd97c2ed23f'
+    });
 }
 
 initMap();
-
-// Functions to open and close a modal
-// function openModal() {
-//     const modal = document.querySelector('#modal-element');
-//     modal.classList.add('is-active');
-// }
-// const modalButton = document.querySelector('#modal-button');
-// modalButton.addEventListener('click', openModal);
-
-function closeModal($el) {
-  $el.classList.remove('is-active');
-}
-
-(document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-  const $target = $close.closest('.modal');
-
-  $close.addEventListener('click', () => {
-    closeModal($target);
-  });
-});
