@@ -8,6 +8,47 @@
     height: 100vh;
 }
 
-.navbar-brand {
-    
-}
+
+.navbar-item {
+    display: flex;
+  }
+  
+  .navbar,
+  .navbar-menu,
+  .navbar-start,
+  .navbar-end {
+    align-items: stretch;
+    display: flex;
+    padding: 0;
+  }
+  
+  .navbar-menu{
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+  .navbar-start{
+    justify-content: flex-start;
+    margin-right: auto;
+  }
+  .navbar-end{
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+/* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+ #map {
+    height:200px;
+  }
+  
+  /* 
+   * Optional: Makes the sample page fill the window. 
+   */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
