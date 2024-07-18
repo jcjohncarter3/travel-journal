@@ -14,12 +14,12 @@ if (googleMapsScript) {
 }
 
 // Functions to open and close a modal
-function openModal() {
-    const modal = document.querySelector('#modal-element');
-    modal.classList.add('is-active');
-}
-const modalButton = document.querySelector('#modal-button');
-modalButton.addEventListener('click', openModal);
+// function openModal() {
+//     const modal = document.querySelector('#modal-element');
+//     modal.classList.add('is-active');
+// }
+// const modalButton = document.querySelector('#modal-button');
+// modalButton.addEventListener('click', openModal);
 
 // Function to display map in modal
 const displayModalMap = function () {
