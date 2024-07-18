@@ -1,9 +1,11 @@
-const submitButton = document.getElementById('submit-form')
-const modal = document.getElementById('modal-element')
-const closeModal = document.querySelector('.modal .delete')
-const cancelModal = document.querySelector('#cancel-button')
-const openModal = document.getElementById('modal-button')
+// Grab modal buttons by class and id
+const submitButton = document.getElementById('submit-form');
+const modal = document.getElementById('modal-element');
+const closeModal = document.querySelector('.modal .delete');
+const cancelModal = document.querySelector('#cancel-button');
+const openModal = document.getElementById('modal-button');
 
+// Functions to open and close modal
 openModal.addEventListener('click', function(){
     modal.classList.add('is-active')
     console.log('open modal click')
@@ -19,10 +21,10 @@ cancelModal.addEventListener('click', function () {
     console.log('close modal click')
 })
 
-submitButton.addEventListener('click', function(event){
+submitButton.addEventListener('click', function(event) {
     event.preventDefault ()
     console.log('submit Button Clicked')
- // grab form values// 
+ // grab form values
  const destination = document.getElementById('destination-answer').value
  const activities = document.getElementById('activities-answer').value
  const thoughts = document.getElementById('thoughts-answer').value
@@ -40,7 +42,7 @@ submitButton.addEventListener('click', function(event){
     <p> Visit: ${visit} </p>
  `;
 
- document.getElementById('modal-output').appendChild(newDiv)
+document.getElementById('modal-output').appendChild(newDiv)
 console.log('new Entry Added')
 
 modal.classList.remove('is-active')

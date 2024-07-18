@@ -12,8 +12,6 @@
     <!-- Bulma Transparent navbar -->
     <nav class="navbar is-transparent has-navbar-fixed-top">
         <div class="navbar-brand">
-
-
           <!-- <img src="travel_journal_logo_2.png"> -->
           <a class="navbar-item" href="...">The Travel Journal</a>
         </div>
@@ -27,104 +25,95 @@
                 <button class="button is-primary is-rounded" id="modal-button" aria-label="close">Make a Post</button>
             </div>
         </div>
-      </nav>
+    </nav>
+
+    <!-- Space for new journal post -->
+    <div id="modal-output" class="section"> </div>
+
+    <div id="image-container"></div>
 
 
-      <div id="modal-output" class="section"> </div>
-
-      <div id="image-container"></div>
-
-
-      <!-- Center Section -->
-
-      <section class="hero is-fullheight-with-navbar">
+    <!-- Center Section -->
+    <section class="hero is-fullheight-with-navbar">
         <p class="title is-3">Your Travel Journal</p>
-      
-      </section>
+    </section>
       
 
     <!-- Modal card -->
     <div class="modal" id="modal-element">
-      <div class="modal-background"></div>
-      <div class="modal-card">
+        <div class="modal-background"></div>
 
+        <div class="modal-card">
+            <!-- Modal Header -->
+            <header class="modal-card-head">
+            <p class="modal-card-title is-3">Create a Journal Post!</p>
+            <button class="delete" aria-label="close"></button>
+            </header>
 
-        <header class="modal-card-head">
-          <p class="modal-card-title is-3">Create a Journal Post!</p>
-          <button class="delete" aria-label="close"></button>
-        </header>
+            <!-- Modal Map -->
+            <div id="map"></div>
 
-        <div id="map"></div>
+            <!-- Modal Form -->
+            <form id="modal-form"> 
 
-        <section class="modal-card-body">
-         <form> 
-            <div class="field my-3"> 
-                <label class="label my-4">Destination Name</label> 
-                <div class="control"> 
-                    <input class="input" id="destination-answer" type="text" 
-                      placeholder="Enter the name of your destination here!"> 
-                </div>  
-            </div> 
-  
-            <div class="field my-3"> 
-                <label class="label my-4">What are some things you did while there?</label> 
-                <div class="control"> 
-                    <input class="input" id="activities-answer" type="textarea" 
-                      placeholder="Enter some of the places you went and activities you did here!" rows="3"> 
-                </div> 
-            </div> 
+                <!-- Modal Body -->
+                <section class="modal-card-body">
+                    <!-- Destination Name Input -->
+                    <div class="field my-3"> 
+                        <label class="label my-4">Destination Name</label> 
+                        <div class="control"> 
+                            <input class="input" id="destination-answer" type="text" 
+                            placeholder="Enter the name of your destination here!"> 
+                        </div>  
+                    </div> 
+        
+                    <!-- Things you did Input -->
+                    <div class="field my-3"> 
+                        <label class="label my-4">What are some things you did while there?</label> 
+                        <div class="control"> 
+                            <input class="input" id="activities-answer" type="textarea" 
+                            placeholder="Enter some of the places you went and activities you did here!" rows="3"> 
+                        </div> 
+                    </div> 
 
-            <div class="field my-3"> 
-                <label class="label my-4">Your Thoughts and Feelings</label> 
-                <div class="control"> 
+                    <!-- Thoughts and Feelings Input -->
+                    <div class="field my-3"> 
+                        <label class="label my-4">Your Thoughts and Feelings</label> 
+                        <div class="control"> 
+                            <input class="input" id="thougts-answer" type="textarea" placeholder="Record your thoughts and feelings here!" rows="3"> 
+                        </div> 
+                    </div>
 
-                    <input class="input" id="thoughts-answer" type="textarea" 
+                    <!-- Reason for visiting Input -->
+                    <div class="field my-3">
+                    <label class="label my-4">What was your reason for visiting?</label>
+                        <div class="control"> 
+                        <input class="input" id="reason-answer" type="text" 
+                            placeholder="What was your reason for visiting?"> 
+                        </div>
+                    </div>
 
-                    <input class="input" id="feelings-answer" type="textarea" 
+                    <!-- Visit again Input -->
+                    <div class="select my-4">
+                        <label class="label">Would you visit again?</label>
+                        <select id="visit-answer">
+                            <option>Absolutely!</option>
+                            <option>Probably not</option>
+                        </select>
+                    </div>
+                </section>
 
-                      placeholder="Record your thoughts and feelings here!" rows="3"> 
-                </div> 
-            </div>
-
-            <div class="field my-3">
-              <label class="label my-4">What was your reason for visiting?</label>
-                <div class="control"> 
-                  <input class="input" id="reason-answer" type="text" 
-                    placeholder="What was your reason for visiting?"> 
-                </div>
-            </div>
-
-
-
-            <div class="select my-4">
-              <label class="label">Would you visit again?</label>
-              <select id="visit-answer">
-                <option>Absolutely!</option>
-                <option>Probably not</option>
-              </select>
-
-            <div class="field my-3">
-              <label class="label my-4">Would you visit again?</label>
-              <div class="control"> 
-                <input class="input" id="visit-again-answer" type="text" 
-                  placeholder="How do you feel about visiting this destination again?"> 
-              </div>
-
-            </div>
-
-          </form>
+                <!-- Modal Footer -->
+                <footer class="modal-card-foot">
+                    <div class="buttons">
+                        <!-- Add to journal button -->
+                        <button class="button is-primary is-success is-outlined is-rounded" id="submit-form">Add to Journal</button>
+                        <!-- Cancel form button -->
+                        <button id="cancel-button" class="button is-primary is-danger is-outlined is-rounded">Cancel</button>
+                    </div>
+                </footer>
+            </form>
         </div>
-    </section>
-   
-          <footer class="modal-card-foot">
-            <div class="buttons">
-              <button class="button is-primary is-success is-outlined is-rounded" id="submit-form">Add to Journal</button>
-            
-              <button id="cancel-button" class="button is-primary is-danger is-outlined is-rounded">Cancel</button>
-            </div>
-          </footer>
-        </div>
-      </div>
     </div>
 
     
