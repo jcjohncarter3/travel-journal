@@ -1,6 +1,7 @@
 const submitButton = document.getElementById('submit-form')
 const modal = document.getElementById('modal-element')
 const closeModal = document.querySelector('.modal .delete')
+const cancelModal = document.querySelector('#cancel-button')
 const openModal = document.getElementById('modal-button')
 
 openModal.addEventListener('click', function(){
@@ -9,6 +10,11 @@ openModal.addEventListener('click', function(){
 })
 
 closeModal.addEventListener('click', function(){
+    modal.classList.remove('is-active')
+    console.log('close modal click')
+})
+
+cancelModal.addEventListener('click', function () {
     modal.classList.remove('is-active')
     console.log('close modal click')
 })

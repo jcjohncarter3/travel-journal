@@ -40,9 +40,9 @@ initMap();
 // const modalButton = document.querySelector('#modal-button');
 // modalButton.addEventListener('click', openModal);
 
-function closeModal($el) {
-  $el.classList.remove('is-active');
-}
+// function closeModal($el) {
+//   $el.classList.remove('is-active');
+// }
 
 (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
   const $target = $close.closest('.modal');
