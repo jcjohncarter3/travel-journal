@@ -3,11 +3,6 @@ const googleMapsApiFirst = "AIzaSyC4o_3wr-";
 const googleMapsApiSecond = "rxXJXUJeT88KC_Z7QVg6y1nOM";
 const googleMapsApi = `${googleMapsApiFirst}${googleMapsApiSecond}`;
 
-// Weatherbit API Key 
-const weatherbitApiFirst = "db5c41aaa3f341d";
-const weatherbitApiSecond = "7919eb2e3235fea1d";
-const weatherbitApi = `${weatherbitApiFirst}${weatherbitApiSecond}`;
-
 // Grab script element in html
 const googleMapsScript = document.getElementById("google-maps-script");
 const modalMapScript = document.getElementById("modal-map-script");
@@ -32,3 +27,4 @@ async function initMap() {
 }
 
 initMap();
+
