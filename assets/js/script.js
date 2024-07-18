@@ -22,12 +22,13 @@ const modalMapScript = document.getElementById("modal-map-script");
 let map;
 
 async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
+    const { Map } = await google.maps.importLibrary("maps");
 
-  map = new Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
+    map = new Map(document.getElementById("map"), {
+        center: { lat: 32.779, lng: -96.808 },
+        zoom: 8,
+        mapId: 'cf24dfd97c2ed23f'
+    });
 }
 
 initMap();
