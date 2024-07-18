@@ -10,9 +10,8 @@
 <body>
 
     <!-- Bulma Transparent navbar -->
-    <nav class="navbar is-transparent">
+    <nav class="navbar is-transparent has-navbar-fixed-top">
         <div class="navbar-brand">
-          <img src="travel_journal_logo_2.png">
           <a class="navbar-item" href="...">The Travel Journal</a>
         </div>
       
@@ -25,19 +24,13 @@
                 <button class="button is-primary is-rounded" id="modal-button" aria-label="close">Make a Post</button>
             </div>
         </div>
-
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <button class="button is-primary is-rounded">Rounded</button>
-            </div>
-        </div>
       </nav>
 
       <!-- Center Section -->
 
       <section class="hero is-fullheight-with-navbar">
-        <p class="title is-3">The Travel Journal</p>
-      <p class="subtitle is-5">Tell your story and let others live it. In their minds, or in person.</p>
+        <p class="title is-3">Your Travel Journal</p>
+      
       </section>
       
 
@@ -54,7 +47,7 @@
 
         <section class="modal-card-body">
          <form> 
-            <div class="field my-6"> 
+            <div class="field my-3"> 
                 <label class="label my-4">Destination Name</label> 
                 <div class="control"> 
                     <input class="input" id="destination-answer" type="text" 
@@ -62,7 +55,7 @@
                 </div>  
             </div> 
   
-            <div class="field my-6"> 
+            <div class="field my-3"> 
                 <label class="label my-4">What are some things you did while there?</label> 
                 <div class="control"> 
                     <input class="input" id="activities-answer" type="textarea" 
@@ -70,7 +63,7 @@
                 </div> 
             </div> 
 
-            <div class="field my-6"> 
+            <div class="field my-3"> 
                 <label class="label my-4">Your Thoughts and Feelings</label> 
                 <div class="control"> 
                     <input class="input" id="feelings-answer" type="textarea" 
@@ -78,7 +71,7 @@
                 </div> 
             </div>
 
-            <div class="field my-6">
+            <div class="field my-3">
               <label class="label my-4">What was your reason for visiting?</label>
                 <div class="control"> 
                   <input class="input" id="reason-answer" type="text" 
@@ -87,7 +80,7 @@
             </div>
 
 
-            <div class="field my-6">
+            <div class="field my-3">
               <label class="label my-4">Would you visit again?</label>
               <div class="control"> 
                 <input class="input" id="visit-again-answer" type="text" 
