@@ -63,14 +63,36 @@ submitButton.addEventListener('click', function(event) {
 
     // creating new div to hold form info
     const newDiv = document.createElement('div');
-    newDiv.classList.add('box');
-    newDiv.innerHTML = `
-        <p> Destination: ${destination} </p>
+    newDiv.classList.add('card');
+    newDiv.classList.add('is-rounded');
+    newDiv.classList.add('has-background-primary-40');
+
+    const cardContent = document.createElement('div');
+    cardContent.classList.add('card-content');
+
+    const media = document.createElement('div');
+    media.classList.add('media');
+
+    const mediaContent = document.createElement('div');
+    mediaContent.classList.add('media-content');
+
+    const destinationP = document.createElement('p');
+    destinationP.textContent = destination;
+
+    const otherContent = document.createElement('div');
+    otherContent.classList.add('content');
+    otherContent.innerHTML = `
         <p> Activities: ${activities} </p>
         <p> Thoughts: ${thoughts} </p>
         <p> Reason: ${reason} </p>
         <p> Visit: ${visit} </p>
         `;
+
+    mediaContent.appendChild(destinationP);
+    media.appendChild(mediaContent);
+    cardContent.appendChild(media);
+    cardContent.appendChild(otherContent);
+    newDiv.appendChild(cardContent);
 
     const appendForecastToNewDiv = function(destination) {
         const weatherbitUrl = `https://api.weatherbit.io/v2.0/current?city=${destination}&key=${weatherbitApi}`
@@ -92,6 +114,7 @@ submitButton.addEventListener('click', function(event) {
                         const currentWeatherDiv = document.createElement('div');
                         const currentWeatherIcon = document.createElement('img');
                         const currentWeatherBody = document.createElement('p');
+                        currentWeatherBody.classList.add('pb-5');
                     
                         // URL For weather icons
                         const weatherbitIconUrl = `https://cdn.weatherbit.io/static/img/icons/${forecastArray[0].icon}.png`;
