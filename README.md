@@ -25,7 +25,7 @@ This web-based application is designed to help users document their travel exper
 * When I submit the form, a new post populates the posts section on the left side of the screen.
 * When I scroll through the posts, the focused post will be enlarged and more information will be seen.
 * When I run out of space for posts, extra posts will be stored and can be accessed.
-* When I want to view posts, I can categorize posts based on time posted/genre/etc
+* When I want to view posts, I can categorize posts based on time posted/genre/etc.
 
 ### Links
 [GitHub repository](https://github.com/jcjohncarter3/travel-journal)
