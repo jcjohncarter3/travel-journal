@@ -39,7 +39,7 @@ const getRandomQuote = function() {
         const quoteDiv = document.querySelector('#quote-area');
         const quoteParagraph = document.createElement('p');
 
-        quoteParagraph.textContent = randomQuote;
+        quoteParagraph.textContent = `"${randomQuote}"`;
 
         quoteDiv.appendChild(quoteParagraph);
     })
