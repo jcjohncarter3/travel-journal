@@ -21,11 +21,6 @@ closeModal.addEventListener('click', function(){
     console.log('close modal click');
 })
 
-cancelModal.addEventListener('click', function () {
-    modal.classList.remove('is-active');
-    console.log('close modal click');
-})
-
 // API fetch request to put random quote at top of screen
 const getRandomQuote = function() {
     fetch("https://type.fit/api/quotes")
