@@ -63,6 +63,7 @@ submitButton.addEventListener('click', function(event) {
 
     // creating new div to hold form info
     const newDiv = document.createElement('div');
+
     newDiv.classList.add('card');
     newDiv.classList.add('is-rounded');
     newDiv.classList.add('has-background-primary-40');
@@ -82,6 +83,7 @@ submitButton.addEventListener('click', function(event) {
     const otherContent = document.createElement('div');
     otherContent.classList.add('content');
     otherContent.innerHTML = `
+
         <p> Activities: ${activities} </p>
         <p> Thoughts: ${thoughts} </p>
         <p> Reason: ${reason} </p>

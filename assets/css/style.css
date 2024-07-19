@@ -1,3 +1,11 @@
+:root {
+    --teal: #006C67;
+    --cream: #FFFDD0;
+    --black: #000000;
+    --off-white: #F4FDFF;
+    --gray: #BEBEBE;
+}
+
 @media only screen and (max-width: 1024px) {
     .navbar-end {
         display: none;
@@ -52,4 +60,12 @@
     height: 100%;
     margin: 0;
     padding: 0;
+  }
+
+  #journal-entry:hover {
+    transform: scale(1.02);
+    -webkit-box-shadow: 3px 3px 14px 0px rgba(0,108,103,1);
+    -moz-box-shadow: 3px 3px 14px 0px rgba(0,108,103,1);
+    box-shadow: 3px 3px 14px 0px rgba(0,108,103,1);
+
   }
