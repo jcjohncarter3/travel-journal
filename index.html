@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>The Travel Journal</title>
 </head>
-<body>
+<body style="max-height: 100vh;">
 
     <!-- Bulma Transparent navbar -->
     <nav class="navbar is-transparent has-navbar-fixed-top">
         <div class="navbar-brand">
           <!-- <img src="travel_journal_logo_2.png"> -->
-          <a class="navbar-item" href="...">The Travel Journal</a>
+          <a class="navbar-item is-size-2" href="...">The Travel Journal</a>
         </div>
       
         <div id="navbarExampleTransparentExample" class="navbar-menu">
@@ -22,20 +22,28 @@
       
         <div class="navbar-end">
             <div class="navbar-item">
-                <button class="button is-primary is-rounded" id="modal-button" aria-label="close">Make a Post</button>
+                <button class="button is-primary is-rounded is-size-4 has-background-primary-4" id="modal-button" aria-label="close">Make a Post</button>
             </div>
         </div>
     </nav>
 
-    <!-- Space for random quote -->
-    <div id="quote-area"></div>
-    <div id="image-container"></div>
+    <div class="hero">
+        <div class="hero-body is-flex is-justify-content-center has-background-primary-40">
+            <!-- Space for random quote -->
+            <p class="title" id="quote-area" class="is-flex is-justify-content-center"></div>
+            <!-- <div id="image-container"></div> -->
+        </div>
+    </div>
 
     <!-- Center Section -->
-    <section class="hero is-fullheight-with-navbar">
-        <p class="title is-3">Your Travel Journal</p>
-        <!-- Space for new journal post -->
-        <div id="modal-output" class="section"></div>
+    <section class="hero is-fullheight">
+        <div class="hero">
+            <div class="container">
+                <h1 class="title pt-5" style="text-decoration: underline;">Your Travel Journal</p>
+                <!-- Space for new journal post -->
+                <div id="modal-output" class="section is-flex is-flex-direction-row is-flex-wrap-wrap"></div>
+            </div>
+        </div>
     </section>
 
     <!-- Modal card -->
