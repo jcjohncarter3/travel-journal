@@ -67,6 +67,7 @@ submitButton.addEventListener('click', function(event) {
     newDiv.classList.add('card');
     newDiv.classList.add('is-rounded');
     newDiv.classList.add('has-background-primary-40');
+    newDiv.setAttribute("id", "journal-entry");
 
     const cardContent = document.createElement('div');
     cardContent.classList.add('card-content');
