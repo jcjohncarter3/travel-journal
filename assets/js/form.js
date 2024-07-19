@@ -64,6 +64,7 @@ submitButton.addEventListener('click', function(event) {
     // creating new div to hold form info
     const newDiv = document.createElement('div');
     newDiv.classList.add('box');
+    newDiv.setAttribute("id", "journal-entry");
     newDiv.innerHTML = `
         <p> Destination: ${destination} </p>
         <p> Activities: ${activities} </p>
