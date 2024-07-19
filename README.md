@@ -1,5 +1,5 @@
 # TRAVEL-JOURNAL
-The Increadible Guide to a Traveler's Journal
+Travel Journal
 
 ### User-Story
 As a traveler and adventurer <br>
