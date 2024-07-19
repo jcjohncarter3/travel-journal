@@ -91,11 +91,47 @@ submitButton.addEventListener('click', function(event) {
         <p> Visit: ${visit} </p>
         `;
 
+    document.getElementById('modal-output').appendChild(newDiv)
+
+    const journalHistory = JSON.parse(localStorage.getItem("journalHistory")) || [];
+    journalHistory.push({destination, activities, thoughts, reason, visit}); 
+    localStorage.setItem('journalHistory', JSON.stringify(journalHistory));
+    console.log('journal history saved');
+
+    modal.classList.remove('is-active');
+    console.log('modal closed after submit');
+
+    document.getElementById('modal-form').reset()
+});
+
+document.addEventListener('DOMContentLoaded', function(){
+    const journalHistory = JSON.parse(localStorage.getItem('journalHistory')) || [];
+    const output = document.getElementById('modal-output');
+    output.innerHTML = ''
+
+    const topJournalHistory = journalHistory.slice(-8);
+    topJournalHistory.forEach(entry => {
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('box');
+    newDiv.innerHTML = `
+        <p> Destination: ${entry.destination} </p>
+        <p> Activities: ${entry.activities} </p>
+        <p> Thoughts: ${entry.thoughts} </p>
+        <p> Reason: ${entry.reason} </p>
+        <p> Visit: ${entry.visit} </p>
+        `;
+    output.appendChild(newDiv);
+    });
+    console.log('journal history loaded')
+
+})
+
     mediaContent.appendChild(destinationP);
     media.appendChild(mediaContent);
     cardContent.appendChild(media);
     cardContent.appendChild(otherContent);
     newDiv.appendChild(cardContent);
+
 
     const appendForecastToNewDiv = function(destination) {
         const weatherbitUrl = `https://api.weatherbit.io/v2.0/current?city=${destination}&key=${weatherbitApi}`
@@ -134,9 +170,4 @@ submitButton.addEventListener('click', function(event) {
 
     appendForecastToNewDiv(destination);
 
-    document.getElementById('modal-output').appendChild(newDiv);
-    console.log('new Entry Added');
-
-    modal.classList.remove('is-active');
-    console.log('modal closed after submit');
-})
+    
