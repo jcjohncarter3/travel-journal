@@ -14,18 +14,15 @@ This web-based application is designed to help users document their travel exper
 * CSS
 * JavaScript
 * Bulma
-* Google API
 * Weatherbit API
 * Quotes API
 * FrameBox
 
 ### Features
 * When I open the webpage, I am greeted with a clean UI.
-* When I press a button on the top right of the screen, a modal appears on the right side for inputs.
-* When I submit the form, a new post populates the posts section on the left side of the screen.
-* When I scroll through the posts, the focused post will be enlarged and more information will be seen.
-* When I run out of space for posts, extra posts will be stored and can be accessed.
-* When I want to view posts, I can categorize posts based on time posted/genre/etc.
+* When I press a button on the top right of the screen, a modal appears for inputs.
+* When I submit the form, a new post populates the posts section in the center of the screen.
+* When I scroll through the posts, the focused post will be enlarged.
 
 ### Links
 [GitHub repository](https://github.com/jcjohncarter3/travel-journal)
@@ -35,4 +32,4 @@ This web-based application is designed to help users document their travel exper
 Made by, John Carter, William Eastham, Ty Mercer, Onykachi Nwosu, and Jedediah Orullian
 
 ### Screenshots
-![Screenshot of webpage]()
+![Screenshot of webpage](./assets/images/The%20Travel%20Journal%20Screenshot.png)
