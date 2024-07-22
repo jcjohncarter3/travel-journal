@@ -26,5 +26,5 @@ async function initMap() {
     });
 }
 
-initMap();
+// initMap();
 

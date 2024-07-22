@@ -86,6 +86,11 @@ submitButton.addEventListener('click', function(event) {
         <p> Visit: ${visit} </p>
         `;
 
+    mediaContent.appendChild(destinationP);
+    media.appendChild(mediaContent);
+    cardContent.appendChild(media);
+    cardContent.appendChild(otherContent);
+    newDiv.appendChild(cardContent);
     document.getElementById('modal-output').appendChild(newDiv)
 
     const journalHistory = JSON.parse(localStorage.getItem("journalHistory")) || [];
@@ -96,39 +101,7 @@ submitButton.addEventListener('click', function(event) {
     modal.classList.remove('is-active');
     console.log('modal closed after submit');
 
-    document.getElementById('modal-form').reset()
-});
-
-document.addEventListener('DOMContentLoaded', function(){
-    const journalHistory = JSON.parse(localStorage.getItem('journalHistory')) || [];
-    const output = document.getElementById('modal-output');
-    output.innerHTML = ''
-
-    const topJournalHistory = journalHistory.slice(-8);
-    topJournalHistory.forEach(entry => {
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('box');
-    newDiv.innerHTML = `
-        <p> Destination: ${entry.destination} </p>
-        <p> Activities: ${entry.activities} </p>
-        <p> Thoughts: ${entry.thoughts} </p>
-        <p> Reason: ${entry.reason} </p>
-        <p> Visit: ${entry.visit} </p>
-        `;
-    output.appendChild(newDiv);
-    });
-    console.log('journal history loaded')
-
-})
-
-    mediaContent.appendChild(destinationP);
-    media.appendChild(mediaContent);
-    cardContent.appendChild(media);
-    cardContent.appendChild(otherContent);
-    newDiv.appendChild(cardContent);
-
-
-    const appendForecastToNewDiv = function(destination) {
+        const appendForecastToNewDiv = function(destination) {
         const weatherbitUrl = `https://api.weatherbit.io/v2.0/current?city=${destination}&key=${weatherbitApi}`
 
         return fetch(weatherbitUrl)
@@ -164,5 +137,57 @@ document.addEventListener('DOMContentLoaded', function(){
     };
 
     appendForecastToNewDiv(destination);
+
+    document.getElementById('modal-form').reset()
+});
+
+document.addEventListener('DOMContentLoaded', function(){
+    const journalHistory = JSON.parse(localStorage.getItem('journalHistory')) || [];
+    const output = document.getElementById('modal-output');
+    output.innerHTML = ''
+
+    const topJournalHistory = journalHistory.slice(-8);
+    topJournalHistory.forEach(entry => {
+        const newDiv = document.createElement('div');
+
+        newDiv.classList.add('card');
+        newDiv.classList.add('is-rounded');
+        newDiv.classList.add('has-background-primary-40');
+        newDiv.setAttribute("id", "journal-entry");
+    
+        const cardContent = document.createElement('div');
+        cardContent.classList.add('card-content');
+    
+        const media = document.createElement('div');
+        media.classList.add('media');
+    
+        const mediaContent = document.createElement('div');
+        mediaContent.classList.add('media-content');
+    
+        const destinationP = document.createElement('p');
+        destinationP.textContent = entry.destination;
+    
+        const otherContent = document.createElement('div');
+        otherContent.classList.add('content');
+        otherContent.innerHTML = `
+    
+            <p> Activities: ${entry.activities} </p>
+            <p> Thoughts: ${entry.thoughts} </p>
+            <p> Reason: ${entry.reason} </p>
+            <p> Visit: ${entry.visit} </p>
+            `;
+    
+        mediaContent.appendChild(destinationP);
+        media.appendChild(mediaContent);
+        cardContent.appendChild(media);
+        cardContent.appendChild(otherContent);
+        newDiv.appendChild(cardContent);
+        document.getElementById('modal-output').appendChild(newDiv)
+    });
+    console.log('journal history loaded')
+
+})
+
+
 
     
