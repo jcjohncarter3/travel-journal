@@ -29,10 +29,10 @@ This web-based application is designed to help users document their travel exper
 
 ### Links
 [GitHub repository](https://github.com/jcjohncarter3/travel-journal)
-[Deployed application]()
+[Deployed application](https://jcjohncarter3.github.io/travel-journal/)
 
 ## Contributors
 Made by, John Carter, William Eastham, Ty Mercer, Onykachi Nwosu, and Jedediah Orullian
 
 ### Screenshots
-
+![Screenshot of webpage]()

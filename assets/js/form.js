@@ -62,6 +62,7 @@ submitButton.addEventListener('click', function(event) {
     newDiv.classList.add('card');
     newDiv.classList.add('is-rounded');
     newDiv.classList.add('has-background-primary-40');
+    newDiv.classList.add('mr-5');
     newDiv.setAttribute("id", "journal-entry");
 
     const cardContent = document.createElement('div');
@@ -91,98 +92,129 @@ submitButton.addEventListener('click', function(event) {
     cardContent.appendChild(media);
     cardContent.appendChild(otherContent);
     newDiv.appendChild(cardContent);
-    document.getElementById('modal-output').appendChild(newDiv)
+    document.getElementById('modal-output').appendChild(newDiv);
 
-    const journalHistory = JSON.parse(localStorage.getItem("journalHistory")) || [];
-    journalHistory.push({destination, activities, thoughts, reason, visit}); 
-    localStorage.setItem('journalHistory', JSON.stringify(journalHistory));
-    console.log('journal history saved');
+    appendForecastToNewDiv(newDiv, destination).then(forecastArray => {
+        const journalHistory = JSON.parse(localStorage.getItem("journalHistory")) || [];
+        journalHistory.push({
+            destination,
+            activities,
+            thoughts,
+            reason,
+            visit,
+            temperature: forecastArray[0].temperature,
+            icon: forecastArray[0].icon,
+        }) 
+        localStorage.setItem('journalHistory', JSON.stringify(journalHistory));
+        console.log('journal history saved');
+    });
 
     modal.classList.remove('is-active');
     console.log('modal closed after submit');
+})
 
-        const appendForecastToNewDiv = function(destination) {
-        const weatherbitUrl = `https://api.weatherbit.io/v2.0/current?city=${destination}&key=${weatherbitApi}`
+const appendForecastToNewDiv = function(newDiv, destination) {
+    const weatherbitUrl = `https://api.weatherbit.io/v2.0/current?city=${destination}&key=${weatherbitApi}`
 
-        return fetch(weatherbitUrl)
-            .then(function (response) {
-                if (response.ok) {
-                    return response.json().then(function (data) {
-                        console.log(data);
-                        let forecastArray = data.data.map(forecast => {
-                            return {
-                                city: forecast.city_name,
-                                temperature: forecast.app_temp,
-                                icon: forecast.weather.icon,
-                            };
-                        });
-                        console.log(forecastArray);
-
-                        const currentWeatherDiv = document.createElement('div');
-                        const currentWeatherIcon = document.createElement('img');
-                        const currentWeatherBody = document.createElement('p');
-                        currentWeatherBody.classList.add('pb-5');
-                    
-                        // URL For weather icons
-                        const weatherbitIconUrl = `https://cdn.weatherbit.io/static/img/icons/${forecastArray[0].icon}.png`;
-                        currentWeatherIcon.src = weatherbitIconUrl;
-                        currentWeatherBody.innerHTML = `<p> Temperature: ${forecastArray[0].temperature} </p>`;
-
-                        currentWeatherDiv.appendChild(currentWeatherIcon);
-                        currentWeatherDiv.appendChild(currentWeatherBody);
-                        newDiv.appendChild(currentWeatherDiv);
+    return fetch(weatherbitUrl)
+        .then(function (response) {
+            if (response.ok) {
+                return response.json().then(function (data) {
+                    console.log(data);
+                    let forecastArray = data.data.map(forecast => {
+                        return {
+                            city: forecast.city_name,
+                            temperature: forecast.app_temp,
+                            icon: forecast.weather.icon,
+                        };
                     });
-                }
-            }) 
-    };
 
-    appendForecastToNewDiv(destination);
+                    const currentWeatherDiv = document.createElement('div');
+                    currentWeatherDiv.classList.add('is-flex');
+                    currentWeatherDiv.classList.add('is-flex-direction-column');
+                    currentWeatherDiv.classList.add('is-align-items-center');
+                    const currentWeatherIcon = document.createElement('img');
+                    const currentWeatherBody = document.createElement('p');
+                    currentWeatherBody.classList.add('pb-5');
+                
+                    // URL For weather icons
+                    const weatherbitIconUrl = `https://cdn.weatherbit.io/static/img/icons/${forecastArray[0].icon}.png`;
+                    currentWeatherIcon.src = weatherbitIconUrl;
+                    currentWeatherBody.innerHTML = `<p> Temperature: ${forecastArray[0].temperature} </p>`;
 
-    document.getElementById('modal-form').reset()
-});
+                    currentWeatherDiv.appendChild(currentWeatherIcon);
+                    currentWeatherDiv.appendChild(currentWeatherBody);
+                    newDiv.appendChild(currentWeatherDiv);
+
+                    return forecastArray;
+                });
+            }
+        }) 
+};
+
+document.getElementById('modal-form').reset()
 
 document.addEventListener('DOMContentLoaded', function(){
-    const journalHistory = JSON.parse(localStorage.getItem('journalHistory')) || [];
-    const output = document.getElementById('modal-output');
-    output.innerHTML = ''
+    const modalOutputDiv = document.querySelector('#modal-output');
+    modalOutputDiv.innerHTML = '';
 
-    const topJournalHistory = journalHistory.slice(-8);
-    topJournalHistory.forEach(entry => {
+    const journalHistory = JSON.parse(localStorage.getItem("journalHistory")) || [];
+
+    journalHistory.forEach(entry => {
         const newDiv = document.createElement('div');
-
         newDiv.classList.add('card');
         newDiv.classList.add('is-rounded');
         newDiv.classList.add('has-background-primary-40');
+        newDiv.classList.add('mr-5');
         newDiv.setAttribute("id", "journal-entry");
-    
+
         const cardContent = document.createElement('div');
         cardContent.classList.add('card-content');
-    
+
         const media = document.createElement('div');
         media.classList.add('media');
-    
+
         const mediaContent = document.createElement('div');
         mediaContent.classList.add('media-content');
-    
+
         const destinationP = document.createElement('p');
         destinationP.textContent = entry.destination;
-    
+
         const otherContent = document.createElement('div');
         otherContent.classList.add('content');
         otherContent.innerHTML = `
-    
             <p> Activities: ${entry.activities} </p>
             <p> Thoughts: ${entry.thoughts} </p>
             <p> Reason: ${entry.reason} </p>
             <p> Visit: ${entry.visit} </p>
-            `;
-    
+        `;
+        
         mediaContent.appendChild(destinationP);
         media.appendChild(mediaContent);
         cardContent.appendChild(media);
         cardContent.appendChild(otherContent);
+
+        const currentWeatherDiv = document.createElement('div');
+        currentWeatherDiv.classList.add('is-flex');
+        currentWeatherDiv.classList.add('is-flex-direction-column');
+        currentWeatherDiv.classList.add('is-align-items-center');
+        const currentWeatherIcon = document.createElement('img');
+        const currentWeatherBody = document.createElement('p');
+        currentWeatherBody.classList.add('pb-5');
+    
+        // URL For weather icons
+        const weatherbitIconUrl = `https://cdn.weatherbit.io/static/img/icons/${entry.icon}.png`;
+        currentWeatherIcon.src = weatherbitIconUrl;
+        currentWeatherBody.innerHTML = `<p> Temperature: ${entry.temperature} </p>`;
+
+        currentWeatherDiv.appendChild(currentWeatherIcon);
+        currentWeatherDiv.appendChild(currentWeatherBody);
+
         newDiv.appendChild(cardContent);
-        document.getElementById('modal-output').appendChild(newDiv)
+        newDiv.appendChild(currentWeatherDiv);
+
+
+        document.getElementById('modal-output').appendChild(newDiv);
     });
     console.log('journal history loaded')
 
