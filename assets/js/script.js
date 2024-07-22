@@ -13,6 +13,38 @@ const modalMapScript = document.getElementById("modal-map-script");
 //     googleMapsScript.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async&libraries=places&callback=initMap`;
 // }
 
+// Light & Dark mode toggle
+// Access toggle switch HTML element
+const themeSwitcher = document.querySelector('#theme-toggle');
+const setMode = document.querySelector('.set-theme');
+
+// Set theme to persist after reload
+let theme = JSON.parse(localStorage.getItem('theme'));
+
+const setTheme = (theme) => {
+    if (theme === 'dark') {
+        setMode.setAttribute('class', 'dark');
+    } else {
+        setMode.setAttribute('class', 'light');
+    }
+};
+
+setTheme(theme);
+
+// Listen for a click event on toggle switch
+themeSwitcher.addEventListener('click', function () {
+    // If mode is dark, apply light background
+    if (theme === 'dark') {
+    theme = 'light';
+    }
+    // If mode is light, apply dark background
+    else {
+        theme = 'dark';
+    }
+    setTheme(theme);
+    localStorage.setItem('theme', JSON.stringify(theme));
+});
+
 // Display map in modal
 let map;
 

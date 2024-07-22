@@ -6,10 +6,25 @@
     --gray: #BEBEBE;
 }
 
-@media only screen and (max-width: 1024px) {
-    .navbar-end {
-        display: none;
-    }
+#theme-toggle {
+    margin-left: 1rem;
+}
+
+.light,
+.light .navbar,
+.light .hero {
+    background-color: var(--cream) !important;
+}
+
+.dark,
+.dark .navbar,
+.dark .hero {
+    background-color: var(--black) !important;
+}
+
+.dark a,
+.dark h1 {
+    color: var(--off-white);
 }
 
 .is-large {
@@ -20,10 +35,10 @@
     display: flex;
 }
   
-  .navbar,
-  .navbar-menu,
-  .navbar-start,
-  .navbar-end {
+.navbar,
+.navbar-menu,
+.navbar-start,
+.navbar-end {
     align-items: stretch;
     display: flex;
     padding: 0;
@@ -44,12 +59,12 @@
     margin-left: auto;
 }
 
-  #journal-entry {
+#journal-entry {
     background-color: var(--cream);
     color: var(--black);
   }
 
-  #journal-entry:hover {
+#journal-entry:hover {
     transform: scale(1.02);
     -webkit-box-shadow: 3px 3px 14px 0px rgba(0,108,103,1);
     -moz-box-shadow: 3px 3px 14px 0px rgba(0,108,103,1);
@@ -59,4 +74,10 @@
 
 .card {
     max-width: 375px !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    .navbar-end {
+        display: none;
+    }
 }
