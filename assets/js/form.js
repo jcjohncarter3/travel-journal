@@ -13,6 +13,7 @@ const openModal = document.getElementById('modal-button');
 // Functions to open and close modal
 openModal.addEventListener('click', function(){
     modal.classList.add('is-active');
+    document.getElementById('modal-form').reset();
     console.log('open modal click');
 })
 
