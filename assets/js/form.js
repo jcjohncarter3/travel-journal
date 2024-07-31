@@ -1,6 +1,6 @@
 // Weatherbit API Key 
-const weatherbitApiFirst = "db5c41aaa3f341d";
-const weatherbitApiSecond = "7919eb2e3235fea1d";
+const weatherbitApiFirst = "";
+const weatherbitApiSecond = "";
 const weatherbitApi = `${weatherbitApiFirst}${weatherbitApiSecond}`;
 
 // Grab modal buttons by class and id
