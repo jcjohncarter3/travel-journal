@@ -1,6 +1,6 @@
 // Google Maps API Key
-const googleMapsApiFirst = "AIzaSyC4o_3wr-";
-const googleMapsApiSecond = "rxXJXUJeT88KC_Z7QVg6y1nOM";
+const googleMapsApiFirst = "";
+const googleMapsApiSecond = "";
 const googleMapsApi = `${googleMapsApiFirst}${googleMapsApiSecond}`;
 
 // Grab script element in html
